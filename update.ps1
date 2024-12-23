@@ -84,9 +84,12 @@ Get-ChildItem -Recurse -Path .\bucket | ForEach-Object -Process {
     (Get-Content $_.FullName) -replace 'media\.inkscape\.org/dl/resources/file', 'mirrors.nju.edu.cn/inkscape' | Set-Content -Path $_.FullName
 
     # DBeaver
-    (Get-Content $_.FullName) -replace 'dbeaver\.io/files', 'ghgo.xyz/https://github.com/dbeaver/dbeaver/releases/download' | Set-Content -Path $_.FullName
+    # (Get-Content $_.FullName) -replace 'dbeaver\.io/files', 'ghgo.xyz/https://github.com/dbeaver/dbeaver/releases/download' | Set-Content -Path $_.FullName
     # Or
-    # (Get-Content $_.FullName) -replace 'dbeaver\.io/files', 'mirrors.nju.edu.cn/github-release/dbeaver/dbeaver' | Set-Content -Path $_.FullName
+    (Get-Content $_.FullName) -replace 'dbeaver\.io/files', 'mirrors.nju.edu.cn/github-release/dbeaver/dbeaver' | Set-Content -Path $_.FullName
+
+    # git
+    (Get-Content $_.FullName) -replace '//.*/git-for-windows/git/releases/download/', '//mirrors.huaweicloud.com/git-for-windows/' | Set-Content -Path $_.FullName
 
     # OBS Studio
     (Get-Content $_.FullName) -replace 'cdn-fastly\.obsproject\.com/downloads/OBS-Studio-(.+)-Windows\.zip', 'ghgo.xyz/https://github.com/obsproject/obs-studio/releases/download/$1/OBS-Studio-$1-Windows.zip' | Set-Content -Path $_.FullName
