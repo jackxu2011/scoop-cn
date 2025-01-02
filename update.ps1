@@ -79,6 +79,9 @@ Get-ChildItem -Recurse -Path .\bucket | ForEach-Object -Process {
     # $content = $content -replace 'dbeaver\.io/files', 'ghgo.xyz/https://github.com/dbeaver/dbeaver/releases/download' 
     $content = $content -replace 'dbeaver\.io/files', 'mirrors.nju.edu.cn/github-release/dbeaver/dbeaver' 
 
+    # git
+    $content = $content -replace '//.*/git-for-windows/git/releases/download/', '//mirrors.huaweicloud.com/git-for-windows/'
+
     # OBS Studio
     # $content = $content -replace 'cdn-fastly\.obsproject\.com/downloads/OBS-Studio-(.+)-Windows\.zip', 'ghgo.xyz/https://github.com/obsproject/obs-studio/releases/download/$1/OBS-Studio-$1-Windows.zip' 
     $content = $content -replace 'cdn-fastly\.obsproject\.com/downloads/OBS-Studio-(.+)-Windows\.zip', 'mirrors.tuna.tsinghua.edu.cn/github-release/obsproject/obs-studio/OBS%20Studio%20$1/OBS-Studio-$1-Windows.zip' 
