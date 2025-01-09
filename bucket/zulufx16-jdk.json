@@ -8,7 +8,7 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://cdn.azul.com/zulu/bin/zulu16.32.15-ca-fx-jdk16.0.2-win_x64.zip",
+            "url": "https://mirror.bazel.build/cdn.azul.com/zulu/bin/zulu16.32.15-ca-fx-jdk16.0.2-win_x64.zip",
             "hash": "d3010ab2f114ffd0adceda9fd7cca1624fa551b549abbce33d536bc36a591c6c",
             "extract_dir": "zulu16.32.15-ca-fx-jdk16.0.2-win_x64"
         }
@@ -26,7 +26,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://cdn.azul.com/zulu/bin/$matchName_x64.zip",
+                "url": "https://mirror.bazel.build/cdn.azul.com/zulu/bin/$matchName_x64.zip",
                 "extract_dir": "$matchName_x64",
                 "hash": {
                     "url": "https://api.azul.com/metadata/v1/zulu/packages/?java_version=16&os=windows&arch=x64&archive_type=zip&java_package_type=jdk&javafx_bundled=true&crac_supported=false&release_type=PSU&latest=true&include_fields=sha256_hash&page_size=1",
