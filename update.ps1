@@ -38,6 +38,12 @@ Remove-Item -Path .\scoop-sysinternals -Recurse -Force
 Get-ChildItem -Recurse -Path .\bucket | ForEach-Object -Process {
     $content = Get-Content $_.FullName
 
+    # DBeaver，not debaver-ea
+    $content = $content -replace 'https?://dbeaver\.io/files/([\d\.]+)/', 'https://mirrors.nju.edu.cn/github-release/dbeaver/dbeaver/$1/'
+
+    # git
+    $content = $content -replace 'https?://github.com/git-for-windows/git/releases/download', 'https://mirrors.huaweicloud.com/git-for-windows'
+
     # GitHub Releases
     $content = $content -replace '(https?://github\.com/.+/releases/.*download)', 'https://ghproxy.cc/$1'
 
@@ -51,9 +57,6 @@ Get-ChildItem -Recurse -Path .\bucket | ForEach-Object -Process {
     $content = $content -replace '(https?://raw\.githubusercontent\.com)', 'https://ghproxy.cc/$1'
     $content = $content -replace '(https?://github\.com/.+/raw/)', 'https://ghproxy.cc/$1'         
 
-    # DBeaver，not debaver-ea
-    $content = $content -replace 'https?://dbeaver\.io/files/([\d\.]+)/', 'https://ghproxy.cc/https://github.com/dbeaver/dbeaver/releases/download/$1/'
-    
     # FastCopy
     $content = $content -replace 'https?://fastcopy\.jp/archive', 'https://ghproxy.cc/https://raw.githubusercontent.com/FastCopyLab/FastCopyDist2/main'
 
