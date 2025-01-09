@@ -41,6 +41,9 @@ Get-ChildItem -Recurse -Path .\bucket | ForEach-Object -Process {
     # DBeaver，not debaver-ea
     $content = $content -replace 'https?://dbeaver\.io/files/([\d\.]+)/', 'https://mirrors.nju.edu.cn/github-release/dbeaver/dbeaver/$1/'
 
+    # zulu jdk
+    $content = $content -replace 'https?://(cdn.azul.com/zulu/bin)', 'https://mirror.bazel.build/$1'
+
     # git
     $content = $content -replace 'https?://github.com/git-for-windows/git/releases/download', 'https://mirrors.huaweicloud.com/git-for-windows'
 
