@@ -38,6 +38,12 @@ Remove-Item -Path .\scoop-sysinternals -Recurse -Force
 Get-ChildItem -Recurse -Path .\bucket | ForEach-Object -Process {
     $content = Get-Content $_.FullName
 
+    # git
+    $content = $content -replace 'https?://github\.com/git-for-windows/.+/releases/.*download', 'https://mirrors.huaweicloud.com/git-for-windows'
+
+    # DBeaver，not debaver-ea
+    $content = $content -replace 'https?://dbeaver\.io/files/([\d\.]+)/', 'https://mirrors.nju.edu.cn/github-release/dbeaver/dbeaver/$1/'
+
     # GitHub Releases
     $content = $content -replace '(https?://github\.com/.+/releases/.*download)', 'https://gh-proxy.com/$1'
 
